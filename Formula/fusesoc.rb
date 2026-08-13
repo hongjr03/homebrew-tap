@@ -7,8 +7,8 @@ class Fusesoc < Formula
   sha256 "e0ceb507665ee59202701ad161abee9bd1a8fa172ae09973a11b97d65b6ba83d"
   license "BSD-2-Clause"
 
-  depends_on "python@3.14"
   depends_on "libyaml"
+  depends_on "python@3.14"
 
   pypi_packages package_name: "", extra_packages: %w[edalize pyparsing pyyaml simplesat fastjsonschema argcomplete]
 
