@@ -9,7 +9,7 @@ class Fusesoc < Formula
 
   depends_on "python@3.14"
 
-  pypi_packages
+  pypi_packages package_name: "fusesoc"
 
   def install
     virtualenv_install_with_resources
