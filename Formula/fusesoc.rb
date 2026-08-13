@@ -11,15 +11,15 @@ class Fusesoc < Formula
 
   pypi_packages package_name: "fusesoc"
 
-  resource "fusesoc-wheel" do
+  resource "fusesoc" do
     url "https://files.pythonhosted.org/packages/c3/34/9fac8ca00e59cac6e00a0adf13a9942b69f6c77676ff5ff617943bbb917b/fusesoc-2.4.6-py3-none-any.whl"
     sha256 "68228c4e935d274ffcb126a8d3cb42cf644fbb829be67fd1178f218f7ebd4c2e"
   end
 
   def install
     venv = virtualenv_create(libexec, "python3.14", system_site_packages: true, without_pip: true)
-    venv.pip_install(resources.reject { |resource| resource.name == "fusesoc-wheel" })
-    venv.pip_install_and_link(resource("fusesoc-wheel"))
+    venv.pip_install(resources.reject { |resource| resource.name == "fusesoc" })
+    venv.pip_install_and_link(resource("fusesoc"))
   end
 
   test do
