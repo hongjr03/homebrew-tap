@@ -14,7 +14,7 @@ class Fusesoc < Formula
   def install
     venv = virtualenv_create(libexec, "python3.14", system_site_packages: true, without_pip: true)
     venv.pip_install(resources)
-    venv.pip_install_and_link(Dir["*.whl"].fetch)
+    venv.pip_install_and_link(Dir["*.whl"].fetch(0))
   end
 
   test do
