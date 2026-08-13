@@ -68,6 +68,12 @@ class Fusesoc < Formula
   end
 
   def install
+    git_config = buildpath/"gitconfig"
+    %w[/tmp /private/tmp].each do |path|
+      system "git", "config", "--file=#{git_config}", "--add", "safe.directory", path
+    end
+    ENV["GIT_CONFIG_GLOBAL"] = git_config
+
     virtualenv_install_with_resources
   end
 
