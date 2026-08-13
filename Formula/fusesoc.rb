@@ -9,12 +9,11 @@ class Fusesoc < Formula
 
   depends_on "python@3.14"
 
-  pypi_packages package_name: "", extra_packages: %w[edalize pyparsing pyyaml simplesat fastjsonschema],
-                exclude_packages: "argcomplete"
+  pypi_packages package_name: "", extra_packages: %w[edalize pyparsing pyyaml simplesat fastjsonschema argcomplete]
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/46/bd/551ee6af426af84ca33e02622be722925c196608e9127d731ef17c47f06e/argcomplete-3.7.2-py3-none-any.whl"
-    sha256 "6029205678bdd9c1c728a155f5f9ecf5812393f969eef58807641a2bc2aa5b19"
+    url "https://files.pythonhosted.org/packages/87/6f/5a73f04007ca950701765949209f068da628bd11f9c2da287278ce91e0ee/argcomplete-3.7.2.tar.gz"
+    sha256 "aad8b69a0b9969edb62db0d1752354c0d50717b10e0cbb00e2a958381b9fc6b9"
   end
 
   resource "attrs" do
@@ -68,12 +67,6 @@ class Fusesoc < Formula
   end
 
   def install
-    git_config = buildpath/"gitconfig"
-    %w[/tmp /private/tmp].each do |path|
-      system "git", "config", "--file=#{git_config}", "--add", "safe.directory", path
-    end
-    ENV["GIT_CONFIG_GLOBAL"] = git_config
-
     virtualenv_install_with_resources
   end
 
