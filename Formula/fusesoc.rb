@@ -8,6 +8,7 @@ class Fusesoc < Formula
   license "BSD-2-Clause"
 
   depends_on "python@3.14"
+  depends_on "libyaml"
 
   pypi_packages package_name: "", extra_packages: %w[edalize pyparsing pyyaml simplesat fastjsonschema argcomplete]
 
